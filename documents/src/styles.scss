@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.toDoBody {
+    min-height: 100vh;
+}
+
+.box {
+  float: left;
+  margin-top: 3px;
+  user-select: none;
+  margin-left: 3px;
+  min-height: 150px;
+  max-height: 150px;
+  height: 150px;
+  width: 180px;
+  overflow-y: auto;
+  cursor: pointer;  
+}
+
+span:hover {
+    color: red;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.infoIcon {
+    user-select: none;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    color: gray;
+    border-radius: 6px;
+}

@@ -1,0 +1,44 @@
+<main class="container toDoBody" [ngClass]="siteTheme ? 'bg-light text-dark' : 'bg-dark text-light'">
+    <div class="row justify-content-center"> <!-- start of row -->
+        <div class="col-md-8 mt-5 text-center"> <!-- start of column -->
+
+            <h2 class="shadow-lg p-3 mb-5 bg-light text-dark rounded font-monospace"> Angular ToDo App </h2>
+
+            <div [hidden]="!hiddenMessage">
+                <p> Welcome to Angular Todo App </p>
+                <p> You are able to add notes which note you want to add </p>
+                <p> You are not able to add empty notes to board </p>
+                <p> You are able to line-through notes by one tab or delete them with x icon </p>
+                <p> There are 2 theme dark and light, you are able to change it by tap to icon </p>
+            </div>
+
+            <div>
+                <i (click)="toggleInfo()" class="fa-solid fa-circle-info text-primary infoIcon"></i>
+                <i [hidden]="siteTheme" (click)="changeTheme()" class="fa-regular fa-lightbulb ms-2"></i>
+                <i [hidden]="!siteTheme" (click)="changeTheme()" class="fa-regular fa-moon ms-2"></i>
+            </div>
+
+            <div class="input-group mb-3 mt-5">
+                <input [(ngModel)]="newTodo" type="text" class="form-control" placeholder="Text Here!"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="saveTodo()"> 
+                    Add
+                </button>
+            </div>
+
+            <div class="card box" *ngFor="let todo of todos; let i = index;">
+                <div class="card-body">
+                    <h5 class="card-title border-bottom p-1">
+                        Note
+                        <span class="float-end " (click)="remove(i)">
+                             x 
+                        </span>
+                    </h5>
+                    <p class="card-text" class="{{ (!todo.isCompleted) ? 'done' : '' }}" (click)="done(i)"> 
+                        {{ todo.name }} 
+                    </p>
+                </div>
+            </div>
+        </div> <!-- end of column -->
+    </div> <!-- end of row -->
+</main>
